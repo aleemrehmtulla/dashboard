@@ -3,9 +3,10 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { useEffect, useState } from 'react';
 import {BsGithub, BsFillMoonStarsFill} from 'react-icons/bs'
-
+import {getHistorical, writeStatus} from '../firebase' 
 export default function Home() {
 
+writeStatus()
   const [dark, setDark] = useState(false);
 
 
