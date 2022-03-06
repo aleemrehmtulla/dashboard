@@ -3,7 +3,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { useEffect, useState } from 'react';
 import {BsGithub, BsFillMoonStarsFill} from 'react-icons/bs'
-import {getHistorical, writeStatus} from '../firebase' 
+import {getHistorical, writeStatus, setStatusTrue, setStatusFalse} from '../firebase' 
 import ProgressBar from "@ramonak/react-progress-bar";
 
 export default function Home() {
@@ -27,6 +27,7 @@ export default function Home() {
       }
 
 
+    
 
   
 
@@ -78,17 +79,19 @@ export default function Home() {
       <div className=" text-center">
         <h1 className={`${dark ? 'text-gray-300' : 'text-black'} text-4xl md:text-6xl  font-bold `} >chai maker ☕️</h1>
         <p className={`${dark ? 'text-gray-300' : 'text-black'} font-semibold  text-xl md:text-3xl pt-2 `}>shipped 3 chais </p>
+        <p className={`${dark ? 'text-gray-300' : 'text-black'} font-semibold  text-lg md:text-2xl pt-2 `}>currently 8* celcius</p>
+
       </div>
       
       <div className="flex  place-content-center mt-8 mr-3 ml-3 ">
        
-       <button onClick={setTime} className={`${dark ? 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' : "bg-black hover:bg-gray-700 py-4 px-8 rounded text-white"}`}>
+       <button onClick={setStatusTrue} className={`${dark ? 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' : "bg-black hover:bg-gray-700 py-4 px-8 rounded text-white"}`}>
          Start
        </button>
-       <button onClick={setTime} className={`${dark ? 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' : "bg-red-800  ml-2 hover:bg-red-900 py-4 px-8 rounded text-white"}`}>
+       <button onClick={setStatusFalse} className={`${dark ? 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' : "bg-red-800  ml-2 hover:bg-red-900 py-4 px-8 rounded text-white"}`}>
         Stop
        </button>
-       
+
       </div>
 
       <div className='flex justify-center '>

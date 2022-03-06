@@ -29,3 +29,16 @@ export async function writeStatus(meta, rand, location) {
     const dbref = ref(database, `/status/isOn`)
     const result = await set(dbref, false)
 }
+
+export async function setStatusTrue() {
+    const isOn = ref(database, `/status/isOn`)
+    await set(isOn, "progress")
+    const timeStamp = ref(database, `/status/timeStamp`)
+    await set(timeStamp, Date.now())
+}
+export async function setStatusFalse() {
+    const isOn = ref(database, `/status/isOn`)
+    await set(isOn, "off")
+    const timeStamp = ref(database, `/status/timeStamp`)
+    await set(timeStamp, Date.now())
+}
